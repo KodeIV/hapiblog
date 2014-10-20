@@ -1,0 +1,18 @@
+{
+  "name": "hapiBlog",
+  "version": "1.0.0",
+  "description": "Blog using template frameworks",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "author": "KodeIV",
+  "license": "ISC",
+  "devDependencies": {
+    "hapi": "^7.0.0",
+    "jade": "^1.7.0",
+    "joi": "^4.7.0",
+    "lab": "^4.7.0",
+    "mongodb": "^1.4.19"
+  }
+}
