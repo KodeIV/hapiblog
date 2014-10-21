@@ -4,7 +4,7 @@
   "description": "Blog using template frameworks",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "lab"
   },
   "author": "KodeIV",
   "license": "ISC",

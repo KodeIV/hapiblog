@@ -1,7 +1,14 @@
 var Hapi = require("hapi");
 var joi = require("joi");
 var routes = require("./routes/routes.js");
-var server = new Hapi.Server(8080, "localhost");
+var server = new Hapi.Server("localhost", 8000);
+module.exports = server;
+
+
+routes.forEach(function (route){
+	server.route(route);
+});
+
 var viewpoints = {
     engines: {
         jade: require("jade")
@@ -9,16 +16,10 @@ var viewpoints = {
 	path: "./views"
 }
 
-module.exports = server;
-
-server.views(viewpoints)
+server.views(viewpoints);
 
 if(!module.parent){
 	server.start(function() {
     	console.log("Hapi server started @", server.info.uri);
 	});
 }
-   
-routes.forEach(function (route){
-	server.route(route);
-});
