@@ -17,7 +17,7 @@ module.exports = {
 		handler: function(request, reply){
 			handlers.articles(request, response);
 		}
-	})
+	});
 
 	server.route({
 		method:'GET',
@@ -25,7 +25,7 @@ module.exports = {
 		handler: function(request, reply){
 			reply()
 		}
-	})
+	});
 
 	server.route({
 		method:'GET',
@@ -33,7 +33,7 @@ module.exports = {
 		handler: function(request, reply){
 			reply()
 		}
-	})
+	});
 
 	server.route({
 		method:'GET',
@@ -41,5 +41,16 @@ module.exports = {
 		handler: function(request, reply){
 			reply()
 		}
-	})
+	});
+
+	server.route ({
+	    method: 'GET',
+	    path: '/',
+	    config: {
+	      handler: function(request, reply) {
+	        reply(results)
+	      }
+
+	    }
+  	});
 }
