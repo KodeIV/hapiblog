@@ -34,12 +34,13 @@ module.exports = {
 	home: function(request, reply) {
 		     pullPosts();   
 		        //var names = request.params.name.split("/");
-		    reply.view("template", {
-		        /*first: "Dan",
-		        last: "Sofer",
-		        mood: "neutral",
-		        colour: "green" */
-		       authour: results
+
+		    reply.view("blogfront", {
+		       //  first: "Dan",
+		       //  last: "Sofer",
+		       //  mood: "neutral",
+		       //  colour: "green" 
+		       // authour: results
 		    })
 		}
 
