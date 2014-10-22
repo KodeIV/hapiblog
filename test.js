@@ -3,7 +3,7 @@ var lab = exports.lab = Lab.script();
 
 
 //var thefile = require("../testfile.js");
-var server = require("./index.js");
+var server = require("./server.js");
 
 var describe = lab.experiment;
 var it = lab.test;
@@ -24,7 +24,7 @@ describe("Test the server is working at port 8000", function() {
 	    server.inject(options, function(response) {
 	        var result = response.result;
 //	 		console.log(response);
-			Lab.expect(result).to.equal("Our blog");       
+			Lab.expect(result).to.equal("This is the landing page.");       
 	 
 	        done();
 		});
@@ -41,14 +41,14 @@ describe("Test the server is working at port 8000", function() {
  
 	    server.inject(options, function(response) {
 	        var result = response.result;
-			Lab.expect(result).to.equal("Blog Post"); 
+			Lab.expect(result).to.equal("page"); 
 			Lab.expect(result).to.be.a("string");
 	        done();
 		});
 
 	});
 
-	it("get /articles/new/ should return object with image property", function(done){
+	it("get /articles/new/ should return new post submission format", function(done){
 	
 		var options = {
 	        method: "GET",
@@ -78,11 +78,11 @@ describe("Test the server is working at port 8000", function() {
 		});
 
 	});
-			it("get /articles/new/ should return object with image property", function(done){
+			it("get /articles/edit should return editable version of selected blog post ", function(done){
 	
 		var options = {
 	        method: "GET",
-	        url: "/articles/new/"
+	        url: "/articles/edit/"
 	    };
  
 	    server.inject(options, function(response) {
