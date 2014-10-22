@@ -1,5 +1,5 @@
 var fs = require ('fs');
-var results = "";
+var results;
 var mongodb = require ('mongodb');
 var MongoClient = mongodb.MongoClient;
 var dbKIV = "mongodb://KodeIV:KoDeIv@linus.mongohq.com:10038/KodeIVMongo";
@@ -36,11 +36,8 @@ module.exports = {
 		        //var names = request.params.name.split("/");
 
 		    reply.view("blogfront", {
-		       //  first: "Dan",
-		       //  last: "Sofer",
-		       //  mood: "neutral",
-		       //  colour: "green" 
-		       // authour: results
+		       
+		       "author" : results
 		    })
 		}
 

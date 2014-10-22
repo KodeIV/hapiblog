@@ -8,6 +8,8 @@ html
       h1 Have a look through the KodeIV blog posts 
       
         ul
-          li.
-            #{name}
-            #{text}
+          each user, i in author
+            li.
+              #{user.name}
+              #{user.text}
+           
