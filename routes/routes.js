@@ -4,9 +4,9 @@ module.exports = [
 	{
 		path: "/home",
 		method: "GET",
-		handler: function(request, response){
-			handlers.home(request, response);
-		}
+		handler: 
+			handlers.home
+		
 	},
 
 	// {

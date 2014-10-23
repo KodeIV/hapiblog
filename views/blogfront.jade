@@ -1,13 +1,11 @@
-doctype html
-html
-  head
-    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
-    title KodeIV blog posts
-  body
-    div.container
-      h1 Have a look through the KodeIV blog posts 
-      
-        ul
+
+extends base
+block append content
+  div.container
+    h1 Have a look through the KodeIV blog posts
+      ul
+        each user, i in author
           li.
-            #{name}
-            #{text}
+            #{user.name} :
+            #{user.text}
+     
