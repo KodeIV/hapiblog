@@ -39,10 +39,18 @@ module.exports = {
 		       
 		       "author" : results
 		    })
-		}
+		}, 
 
-	// articles:function(request, reply){
-	// 		reply('This is the landing page.</br> Post 1.</br> Post 2')
-	// 	}
+  publicfiles: 
+        {
+          directory: {
+              path: 'public',
+              listing: true
+          }
+        }
+
+	//deletecontent:
+
+	
 
 }
