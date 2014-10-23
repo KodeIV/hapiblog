@@ -9,6 +9,19 @@ module.exports = [
 		
 	},
 
+	{
+	    path: '/{param*}',
+	    method: 'GET',
+	    handler: 
+	    	handlers.publicfiles
+
+	}
+	// {
+	// 	path: "/deletecontent",
+	// 	method: "DELETE",
+	// 	handler: handlers.deletecontent
+	// }
+
 	// {
 	// 	method:'GET',
 	// 	path:'/articles/',
