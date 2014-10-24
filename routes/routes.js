@@ -15,36 +15,32 @@ module.exports = [
 	    handler: 
 	    	handlers.publicfiles
 
+	},
+
+	{
+		path: "/articles/{id}",
+		method: "DELETE",
+		handler: handlers.deleteContent
+	},
+
+	{
+	    method  : "GET",
+	    path   : "/articles/{id}",
+	    handler : handlers.getSpecificPost
+	},
+
+	{
+		method:'POST',
+		path:'/articles/new',
+		handler: handlers.insertNewPost
+	},
+
+	{
+		method: 'GET',
+		path:'/articles/new',
+		handler: handlers.getForm
+
 	}
-	// {
-	// 	path: "/deletecontent",
-	// 	method: "DELETE",
-	// 	handler: handlers.deletecontent
-	// }
-
-	// {
-	// 	method:'GET',
-	// 	path:'/articles/',
-	// 	handler: function(request, reply){
-	// 		handlers.articles(request, response);
-	// 	}
-	// },
-
-	// {
-	// 	method:'GET',
-	// 	path:'/articles/{i}/'
-	// 	handler: function(request, reply){
-	// 		reply()
-	// 	}
-	// });
-
-	// server.route({
-	// 	method:'GET',
-	// 	path:'/articles/new/'
-	// 	handler: function(request, reply){
-	// 		reply()
-	// 	}
-	// });
 
 	// {
 	// 	method:'GET',
@@ -54,14 +50,4 @@ module.exports = [
 	// 	}
 	// });
 
-	// {
-	//     method: 'GET',
-	//     path: '/',
-	//     config: {
-	//       handler: function(request, reply) {
-	//         reply(results)
-	//       }
-
-	//     }
-	// 	});
 ]
