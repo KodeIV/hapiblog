@@ -18,7 +18,7 @@ module.exports = [
 	},
 
 	{
-		path: "/articles/delete/{id}",
+		path: "/articles/{id}",
 		method: "DELETE",
 		handler: handlers.deleteContent
 	},
@@ -31,10 +31,16 @@ module.exports = [
 
 	{
 		method:'POST',
-		path:'/articles/new/',
+		path:'/articles/new',
 		handler: handlers.insertNewPost
-	}
+	},
 
+	{
+		method: 'GET',
+		path:'/articles/new',
+		handler: handlers.getForm
+
+	}
 
 	// {
 	// 	method:'GET',

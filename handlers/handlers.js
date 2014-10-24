@@ -60,21 +60,23 @@ module.exports = {
   },
 
   insertNewPost: function(request, reply){
-    var entry = {
+    var db = request.server.plugins['hapi-mongodb'].db;
+    db.collection('DevOps').insert({
       title: request.payload.title,
       author: request.payload.author, 
       content: request.payload.content
-    };
-    var db = request.server.plugins['hapi-mongodb'].db;
-    db.collection('DevOps').insert(entry, {w:1}, function(err, data) {
+    },
+      
+      function(err, data) {
+        reply.redirect("/home")});
 
-      if(err) console.log(err);
-      console.log(data);
-      reply(data)
-      });
+  },
 
+  getForm: function (request, reply) {
+        reply.view ("form", {
+
+        })
   }
-
   
 
 };
