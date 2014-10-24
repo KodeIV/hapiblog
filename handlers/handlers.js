@@ -14,14 +14,10 @@ module.exports = {
               .sort({"id": -1 })
               .toArray(function(err, docs) {
                   console.log(docs);
-                reply(docs) 
-                results = docs;
+                reply.view("blogfront", {
+                  "author" : docs
+                })
               });
-
-		    // reply.view("blogfront", {
-		       
-		    //    "author" : results
-		    // })
 
 		}, 
 
@@ -76,10 +72,14 @@ module.exports = {
         reply.view ("form", {
 
         })
-  }
-  
+  },
 
-};
+  editArticle: function (request, reply) {
+    reply.view("form")
+
+}
+  };
+
 
 
   // function storePost () {

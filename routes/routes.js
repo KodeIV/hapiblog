@@ -42,12 +42,17 @@ module.exports = [
 
 	}
 
-	// {
-	// 	method:'GET',
-	// 	path:'/articles/edit/'
-	// 	handler: function(request, reply){
-	// 		reply()
-	// 	}
-	// });
+	/*{
+		method:'GET',
+		path:'/articles/edit/',
+		handler: handlers.editArticle
+		},
+
+	{
+		method: 'POST',
+		path: '/articles/edit',
+		handler: handlers.saveChanges
+
+	}*/ 
 
 ]
