@@ -1,0 +1,8 @@
+
+extends base
+block append content 
+each user, i in blogPost
+h1#{user.title}
+h2#{user.date}
+h3#{user.name}
+p#{user.text}

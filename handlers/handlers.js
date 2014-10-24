@@ -1,45 +1,39 @@
-var fs = require ('fs');
 var results;
 var mongodb = require ('mongodb');
-var MongoClient = mongodb.MongoClient;
-var dbKIV = "mongodb://KodeIV:KoDeIv@linus.mongohq.com:10038/KodeIVMongo";
-var entry ={"id": 5, "date": "21102104", "name": "Naomi", "text":"Jade stare"};
-
-function pullPosts() {
-    MongoClient.connect(dbKIV, function (err, db) {
-      var collection = db.collection('DevOps');
-      collection.find().sort({"id": -1 }).toArray(function(err, docs) {
-        console.log(docs);
-        results = docs;
-
-      });
-    });
-  }
-
-  function storePost () {
-    //connect to our db
-    MongoClient.connect(dbKIV, function(err, db) {
-    // operate the on the collection named "DevOps"
-    var collection = db.collection('DevOps');
-    collection.insert(entry, function(err, data) {
-
-      if(err) console.log(err);
-      });
-
-    })
-  }
+//var entry ={"id": 5, "date": "21102104", "name": "Naomi", "text":"Jade stare"};
+var joi = require("joi");
 
 
 module.exports = {
-	home: function(request, reply) {
-		     pullPosts();   
-		        //var names = request.params.name.split("/");
 
-		    reply.view("blogfront", {
+	home: function(request, reply) {
+            var db = request.server.plugins['hapi-mongodb'].db;
+
+            db.collection('DevOps')
+		          .find()
+              .sort({"id": -1 })
+              .toArray(function(err, docs) {
+                  console.log(docs);
+                reply(docs) 
+                results = docs;
+              });
+
+		    // reply.view("blogfront", {
 		       
-		       "author" : results
-		    })
+		    //    "author" : results
+		    // })
+
 		}, 
+
+    deleteContent: function(request, reply) {
+    var db = request.server.plugins['hapi-mongodb'].db;
+    var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
+
+    db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) }, function (err){
+    if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
+    reply("Record Deleted");
+    });
+    },
 
   publicfiles: 
         {
@@ -47,10 +41,51 @@ module.exports = {
               path: 'public',
               listing: true
           }
-        }
+        },
 
-	//deletecontent:
 
-	
+  getSpecificPost: function(request, reply) {
+    var db = request.server.plugins['hapi-mongodb'].db;
+    var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
 
-}
+    db.collection('DevOps')
+      .findOne({  "_id" : new ObjectID (request.params.id) }, function(err, result) {
+        
+          if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
+          console.log(result);
+          reply(result);
+
+    });
+
+  },
+
+  insertNewPost: function(request, reply){
+    var entry = {
+      title: request.payload.title,
+      author: request.payload.author, 
+      content: request.payload.content
+    };
+    var db = request.server.plugins['hapi-mongodb'].db;
+    db.collection('DevOps').insert(entry, {w:1}, function(err, data) {
+
+      if(err) console.log(err);
+      console.log(data);
+      reply(data)
+      });
+
+  }
+
+  
+
+};
+
+
+  // function storePost () {
+  //   //connect to our db
+  //   MongoClient.connect(dbKIV, function(err, db) {
+  //   // operate the on the collection named "DevOps"
+  //   var collection = db.collection('DevOps');
+  //   
+  //   })
+  // };
+

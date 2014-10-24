@@ -2,10 +2,10 @@
 extends base
 block append content
   div.container
-    h1 Have a look through the KodeIV blog posts
-    ul
+  	h1 Have a look through the KodeIV blog posts
+  	ul
       each user, i in author
-        li.
-          #{user.name} :
-          #{user.text}
-     
+    		li.
+    			#{user.name} :
+    			#{user.text}
+  	 
