@@ -5,6 +5,6 @@ block append content
     h1 Have a look through the KodeIV blog posts
     ul
         each user, i in author
-          li.
-            #{user.name} :
-            #{user.text}
+          li
+            p #{user.author} :
+            a(href="/articles/"+user._id) #{user.title}

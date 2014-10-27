@@ -25,11 +25,24 @@ module.exports = {
     var db = request.server.plugins['hapi-mongodb'].db;
     var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
 
-    db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) }, function (err){
-    if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
-    reply("Record Deleted");
-    });
+    db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) }, 
+      function(err, reply) {
+        console.log(err);
+        reply.redirect("/home")});
     },
+
+      insertNewPost: function(request, reply){
+        var db = request.server.plugins['hapi-mongodb'].db;
+        db.collection('DevOps').insert({
+          title: request.payload.title,
+          author: request.payload.author, 
+          content: request.payload.content
+        },
+      
+      function(err, data) {
+        reply.redirect("/home")});
+
+  },
 
   publicfiles: 
         {
@@ -49,24 +62,14 @@ module.exports = {
         
           if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
           console.log(result);
-          reply(result);
+          reply.view("individual", {
+            "blogpost" : result
+          });
 
     });
 
   },
 
-  insertNewPost: function(request, reply){
-    var db = request.server.plugins['hapi-mongodb'].db;
-    db.collection('DevOps').insert({
-      title: request.payload.title,
-      author: request.payload.author, 
-      content: request.payload.content
-    },
-      
-      function(err, data) {
-        reply.redirect("/home")});
-
-  },
 
   getForm: function (request, reply) {
         reply.view ("form", {
@@ -75,7 +78,9 @@ module.exports = {
   },
 
   editArticle: function (request, reply) {
-    reply.view("form")
+    reply.view("editForm", {
+
+    })
 
 }
   };
