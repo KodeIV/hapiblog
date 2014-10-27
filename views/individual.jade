@@ -1,8 +1,15 @@
 
 extends base
 block append content 
-each user, i in blogPost
-h1#{user.title}
-h2#{user.date}
-h3#{user.name}
-p#{user.text}
+  div.container
+    h1 Blog post
+    ul
+        li.
+          #{blogpost.title} :
+          #{blogpost.content} 
+        form(name="input", method="POST", action="/articles/{id}")
+        p
+          input(type="submit", value="Delete")
+        form(name="input", method="GET", action="/articles/edit")
+        p
+          input(type="submit", value="Edit")

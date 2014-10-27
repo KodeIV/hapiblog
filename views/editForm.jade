@@ -1,0 +1,15 @@
+extends base
+block append content
+  h3.
+    Edit your blog post.
+  ul
+    form(class="form" name="input", method="POST", action="/articles/edit")
+    p Name
+      input(type="text", name="author")
+    p Title
+      input(type="text", name="title")
+    p Content
+      input(type= "text", name="content")
+    p
+      input(type="submit", value="Submit")
+ 
