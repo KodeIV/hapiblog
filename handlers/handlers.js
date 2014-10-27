@@ -4,28 +4,36 @@ var mongodb = require ('mongodb');
 var joi = require("joi");
 
 
+
+            
+
 module.exports = {
 
 	home: function(request, reply) {
-            var db = request.server.plugins['hapi-mongodb'].db;
+          var doc;
+          var db = request.server.plugins['hapi-mongodb'].db;
 
             db.collection('DevOps')
-		          .find()
+              .find()
               .sort({"id": -1 })
               .toArray(function(err, docs) {
                   console.log(docs);
-                reply(docs) 
+                //reply(docs) 
                 results = docs;
+                
+             
               });
+              
+              reply.view("blogfront", {
+           
+           "author" : results
+         })
 
-		    // reply.view("blogfront", {
-		       
-		    //    "author" : results
-		    // })
+		     
 
 		}, 
 
-    deleteContent: function(request, reply) {
+  deleteContent: function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
     var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
 
@@ -53,9 +61,16 @@ module.exports = {
         
           if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
           console.log(result);
-          reply(result);
+          //reply(result);
+          doc = result;
 
-    });
+          reply.view("individual", {
+            "blogpost": doc
+          })
+          
+
+    })
+      
 
   },
 
