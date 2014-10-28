@@ -1,10 +1,10 @@
 var handlers = require("../handlers/commentHandlers.js"); 
 
-module.exports = [
+module.exports = 
 {
-		path: "/home",
+		path: "/",
 		method: "GET",
 		handler: 
 			handlers.insertComment
 		
-	},]
+	}
