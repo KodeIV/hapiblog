@@ -1,10 +1,10 @@
 var Hapi = require("hapi");
 var joi = require("joi");
 var Path = require('path'); 
-
 var routes = require("./routes/routes.js");
-
+var pack = new Hapi.Pack();
 var server = new Hapi.Server(8080, "localhost");
+
 var dbOpts = {
     "url": "mongodb://KodeIV:KoDeIv@linus.mongohq.com:10038/KodeIVMongo",
     "settings": {
@@ -30,7 +30,7 @@ var viewpoints = {
                   	path: "./views"
                   }
 
-module.exports = server;
+//module.exports = server;
 
 server.views(viewpoints)
 
