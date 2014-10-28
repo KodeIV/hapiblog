@@ -9,6 +9,8 @@
   "author": "KodeIV",
   "license": "ISC",
   "devDependencies": {
+    "good":"^3.1",
+    "good-http":"^2.0.0",
     "hapi": "^7.0.0",
     "hapi-mongodb": "^2.2.0",
     "jade": "^1.7.0",
