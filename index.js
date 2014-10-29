@@ -4,7 +4,7 @@ var Path = require('path');
 var routes = require("./routes/routes.js");
 
 
-var server = new Hapi.Server(~~process.env.PORT || 3000, '0.0.0.0', {
+var server = new Hapi.Server(+process.env.PORT, '0.0.0.0', {
    debug: {
        request: ['error']
    }
