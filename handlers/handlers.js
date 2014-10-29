@@ -9,6 +9,7 @@ var joi = require("joi");
 
 module.exports = {
 
+
 	home: function(request, reply) {
           var doc;
           var db = request.server.plugins['hapi-mongodb'].db;
@@ -89,7 +90,16 @@ module.exports = {
 
     })
 
-}
+},
+
+  authenticate: function (request, reply) {
+
+                // Perform any account lookup or registration, setup local session,
+                // and redirect to the application. The third-party credentials are
+                // stored in request.auth.credentials. Any query parameters from
+                // the initial request are passed back via request.auth.credentials.query.
+                return reply.redirect('/home');
+            }
   };
 
 
