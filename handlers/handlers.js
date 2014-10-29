@@ -3,6 +3,9 @@ var mongodb = require ('mongodb');
 //var entry ={"id": 5, "date": "21102104", "name": "Naomi", "text":"Jade stare"};
 var joi = require("joi");
 
+var serverConfig = {
+		cache: require ('catbox-memory')
+	};
 
 module.exports = {
 
@@ -20,13 +23,13 @@ module.exports = {
                 })
               });
 
-		}, 
+		},
 
     deleteContent: function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
     var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
 
-    db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) }, 
+    db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) },
       function(err, reply) {
         console.log(err);
         reply.redirect("/home")});
@@ -36,16 +39,16 @@ module.exports = {
         var db = request.server.plugins['hapi-mongodb'].db;
         db.collection('DevOps').insert({
           title: request.payload.title,
-          author: request.payload.author, 
+          author: request.payload.author,
           content: request.payload.content
         },
-      
+
       function(err, data) {
         reply.redirect("/home")});
 
   },
 
-  publicfiles: 
+  publicfiles:
         {
           directory: {
               path: 'public',
@@ -60,7 +63,7 @@ module.exports = {
 
     db.collection('DevOps')
       .findOne({  "_id" : new ObjectID (request.params.id) }, function(err, result) {
-        
+
           if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
           console.log(result);
           reply.view("individual", {
@@ -93,7 +96,6 @@ module.exports = {
   //   MongoClient.connect(dbKIV, function(err, db) {
   //   // operate the on the collection named "DevOps"
   //   var collection = db.collection('DevOps');
-  //   
+  //
   //   })
   // };
-

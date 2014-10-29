@@ -15,11 +15,43 @@ a{
 }
 
 body {
-	background-color: #9bd2f2	;
+	background-image: url("http://i.imgur.com/tl9gS4Q.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	padding:50px;
+	height: 100%;
+
 }
 
 #lol {
 
 	width: 90px;
 	height: 100px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container{
+	border-radius: solid 3px;
+}
+
+a:link {
+	color: #3399FF;
+}
+
+/* visited link */
+a:visited {
+	color: #3399FF;
+}
+
+/* mouse over link */
+a:hover {
+	color: #92ba9d;
+}
+
+/* selected link */
+a:active {
+	color: #3399FF;
 }
