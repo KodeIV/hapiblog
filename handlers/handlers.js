@@ -7,8 +7,8 @@ var serverConfig = {
 		cache: require ('catbox-memory')
 	};
 
-module.exports = {
 
+module.exports = {
 
 	home: function(request, reply) {
           var doc;
@@ -22,10 +22,10 @@ module.exports = {
 
                 reply.view("blogfront", {
                   "author" : docs
-                })
+                });
               });
 
-		},
+	},
 
   deleteContent: function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
@@ -34,19 +34,23 @@ module.exports = {
     db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) },
       function(err, reply) {
         console.log(err);
-        reply.redirect("/home")});
-    },
+        reply.redirect("/home");
+      });
+  },
 
-      insertNewPost: function(request, reply){
+  insertNewPost: function(request, reply){
         var db = request.server.plugins['hapi-mongodb'].db;
-        db.collection('DevOps').insert({
+        db.collection('DevOps').insert(
+
+        {
           title: request.payload.title,
           author: request.payload.author,
           content: request.payload.content
         },
 
       function(err, data) {
-        reply.redirect("/home")});
+        reply.redirect("/home");
+      });
 
   },
 
@@ -74,7 +78,7 @@ module.exports = {
             "blogpost" : result
           });
 
-    })
+    });
 
 
   },
@@ -83,13 +87,13 @@ module.exports = {
   getForm: function (request, reply) {
         reply.view ("form", {
 
-        })
+        });
   },
 
   editArticle: function (request, reply) {
     reply.view("editForm", {
 
-    })
+    });
 
 },
 
@@ -100,5 +104,23 @@ module.exports = {
                 // stored in request.auth.credentials. Any query parameters from
                 // the initial request are passed back via request.auth.credentials.query.
                 return reply.redirect('/home');
-            }
+  },
+
+
+  commentToDb: function (request, reply) {
+    var db = request.server.plugins['hapi-mongodb'].db;
+        db.collection('Comments').insert(
+        {
+          comments: request.payload.comments
+        },
+
+      function(err, data) {
+        reply.redirect("/home");
+      }
+
+        );
+
+  }
+
+
   };

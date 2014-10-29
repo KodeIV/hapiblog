@@ -1,8 +1,8 @@
 var Hapi = require("hapi");
 var joi = require("joi");
-var Path = require('path'); 
+//var Path = require('path'); 
 var routes = require("./routes/routes.js");
-var routes2 = require("./routes/routes2.js");
+//var routes2 = require("./routes/routes2.js");
 var bell = require("bell");
 var hapiAuthCookie = require("hapi-auth-cookie");
 
@@ -15,11 +15,7 @@ var server = pack.server(+process.env.PORT, '0.0.0.0', {
    }
 });
 
-var server2 = pack.server(8081, "localhost", {
-   debug: {
-       request: ['error']
-   }
-});
+
 
 var dbOpts = {
     "url": "mongodb://KodeIV:KoDeIv@linus.mongohq.com:10038/KodeIVMongo",
@@ -95,7 +91,7 @@ if(!module.parent){
 }
    
 server.route(routes);
-server2.route(routes2);
+//server2.route(routes2);
 
 
 
