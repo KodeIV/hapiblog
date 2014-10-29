@@ -6,6 +6,7 @@ var joi = require("joi");
 
 module.exports = {
 
+
 	home: function(request, reply) {
             var db = request.server.plugins['hapi-mongodb'].db;
 

@@ -2,6 +2,10 @@ var Hapi = require("hapi");
 var joi = require("joi");
 var Path = require('path'); 
 var routes = require("./routes/routes.js");
+<<<<<<< HEAD
+var pack = new Hapi.Pack();
+=======
+>>>>>>> master
 var server = new Hapi.Server(8080, "localhost");
 
 var dbOpts = {
@@ -66,7 +70,7 @@ var viewpoints = {
                   }
 server.views(viewpoints)
 
-module.exports = server;
+//module.exports = server;
 
 if(!module.parent){
 	server.start(function() {
