@@ -51,6 +51,7 @@ server.pack.register(require('hapi-auth-cookie'), function (err) {
     if (err) {
         throw err;
     }
+  });
 
     // Set our strategy
     server.auth.strategy('session', 'cookie', {
@@ -71,8 +72,8 @@ var viewpoints = {
                       jade: require("jade")
                     },
                   	path: "./views"
-                  }
-server.views(viewpoints)
+                  };
+server.views(viewpoints);
 
 //module.exports = server;
 
