@@ -6,8 +6,10 @@ var routes2 = require("./routes/routes2.js");
 var bell = require("bell");
 var hapiAuthCookie = require("hapi-auth-cookie");
 
+
 var pack = new Hapi.Pack();
-var server = pack.server(8080, "localhost", {
+var server = pack.server(+process.env.PORT, '0.0.0.0', {
+
    debug: {
        request: ['error']
    }
@@ -58,6 +60,7 @@ server.pack.register(require('hapi-auth-cookie'), function (err) {
     if (err) {
         throw err;
     }
+  });
 
     // Set our strategy
     server.auth.strategy('session', 'cookie', {
@@ -67,7 +70,7 @@ server.pack.register(require('hapi-auth-cookie'), function (err) {
         isSecure: false, // required for non-https applications
         ttl: 24* 60 * 60 * 1000 // Set session to 1 day
     });
-  })
+
     
 server.ext('onRequest', function (request, next) {
         console.log(request.path, request.query);
@@ -79,8 +82,8 @@ var viewpoints = {
                       jade: require("jade")
                     },
                   	path: "./views"
-                  }
-server.views(viewpoints)
+                  };
+server.views(viewpoints);
 
 //module.exports = server;
 

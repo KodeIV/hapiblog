@@ -1,160 +1,226 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'lab' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'jshint' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.32
-4 warn package.json hapiBlog@1.0.0 No repository field.
-5 warn package.json sass@0.5.0 No repository field.
-6 verbose readDependencies using package.json deps
-7 verbose cache add [ 'lab', null ]
-8 verbose cache add name=undefined spec="lab" args=["lab",null]
-9 verbose parsed url { protocol: null,
-9 verbose parsed url   slashes: null,
-9 verbose parsed url   auth: null,
-9 verbose parsed url   host: null,
-9 verbose parsed url   port: null,
-9 verbose parsed url   hostname: null,
-9 verbose parsed url   hash: null,
-9 verbose parsed url   search: null,
-9 verbose parsed url   query: null,
-9 verbose parsed url   pathname: 'lab',
-9 verbose parsed url   path: 'lab',
-9 verbose parsed url   href: 'lab' }
-10 silly lockFile 3953f9dd-lab lab
-11 verbose lock lab /Users/naomigaynor/.npm/3953f9dd-lab.lock
-12 silly lockFile 3953f9dd-lab lab
-13 silly lockFile 3953f9dd-lab lab
-14 verbose addNamed [ 'lab', '' ]
-15 verbose addNamed [ null, '*' ]
-16 silly lockFile 521b3e0c-lab lab@
-17 verbose lock lab@ /Users/naomigaynor/.npm/521b3e0c-lab.lock
-18 silly addNameRange { name: 'lab', range: '*', hasData: false }
-19 verbose request where is /lab
-20 verbose request registry https://registry.npmjs.org/
-21 verbose request id d8680dbf9eac51e0
-22 verbose url raw /lab
-23 verbose url resolving [ 'https://registry.npmjs.org/', './lab' ]
-24 verbose url resolved https://registry.npmjs.org/lab
-25 verbose request where is https://registry.npmjs.org/lab
-26 info trying registry request attempt 1 at 13:41:23
-27 verbose etag "5AUSJZ8KY3379W9EVORS3SF9M"
-28 http GET https://registry.npmjs.org/lab
-29 http 200 https://registry.npmjs.org/lab
-30 silly registry.get cb [ 200,
-30 silly registry.get   { date: 'Mon, 27 Oct 2014 13:41:24 GMT',
-30 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-30 silly registry.get     etag: '"B70QRRTN7XXH8I4KDTYEYYJGB"',
-30 silly registry.get     'content-type': 'application/json',
-30 silly registry.get     'cache-control': 'max-age=60',
-30 silly registry.get     'content-length': '82460',
-30 silly registry.get     'accept-ranges': 'bytes',
-30 silly registry.get     via: '1.1 varnish',
-30 silly registry.get     age: '0',
-30 silly registry.get     'x-served-by': 'cache-fra1222-FRA',
-30 silly registry.get     'x-cache': 'MISS',
-30 silly registry.get     'x-cache-hits': '0',
-30 silly registry.get     'x-timer': 'S1414417284.473718,VS0,VE105',
-30 silly registry.get     vary: 'Accept',
-30 silly registry.get     'keep-alive': 'timeout=10, max=50',
-30 silly registry.get     connection: 'Keep-Alive' } ]
-31 silly addNameRange number 2 { name: 'lab', range: '*', hasData: true }
-32 silly addNameRange versions [ 'lab',
-32 silly addNameRange   [ '0.0.0',
-32 silly addNameRange     '0.0.1',
-32 silly addNameRange     '0.0.2',
-32 silly addNameRange     '0.0.3',
-32 silly addNameRange     '0.0.4',
-32 silly addNameRange     '0.0.5',
-32 silly addNameRange     '0.0.6',
-32 silly addNameRange     '0.0.7',
-32 silly addNameRange     '0.0.8',
-32 silly addNameRange     '0.1.0',
-32 silly addNameRange     '0.1.1',
-32 silly addNameRange     '0.1.2',
-32 silly addNameRange     '0.1.3',
-32 silly addNameRange     '0.1.4',
-32 silly addNameRange     '0.1.5',
-32 silly addNameRange     '0.1.6',
-32 silly addNameRange     '0.2.0',
-32 silly addNameRange     '1.0.0',
-32 silly addNameRange     '1.1.0',
-32 silly addNameRange     '1.1.1',
-32 silly addNameRange     '1.1.2',
-32 silly addNameRange     '1.1.3',
-32 silly addNameRange     '1.2.0',
-32 silly addNameRange     '1.2.1',
-32 silly addNameRange     '1.2.2',
-32 silly addNameRange     '1.2.3',
-32 silly addNameRange     '1.3.0',
-32 silly addNameRange     '1.4.0',
-32 silly addNameRange     '1.5.0',
-32 silly addNameRange     '1.6.0',
-32 silly addNameRange     '1.7.0',
-32 silly addNameRange     '1.7.1',
-32 silly addNameRange     '1.8.0',
-32 silly addNameRange     '1.9.0',
-32 silly addNameRange     '2.0.0',
-32 silly addNameRange     '2.0.1',
-32 silly addNameRange     '2.0.2',
-32 silly addNameRange     '3.0.0',
-32 silly addNameRange     '3.0.1',
-32 silly addNameRange     '3.1.0',
-32 silly addNameRange     '3.1.1',
-32 silly addNameRange     '3.1.2',
-32 silly addNameRange     '3.1.3',
-32 silly addNameRange     '3.1.4',
-32 silly addNameRange     '3.2.0',
-32 silly addNameRange     '3.2.1',
-32 silly addNameRange     '3.2.3',
-32 silly addNameRange     '4.0.0',
-32 silly addNameRange     '4.0.1',
-32 silly addNameRange     '4.0.2',
-32 silly addNameRange     '4.1.0',
-32 silly addNameRange     '4.2.0',
-32 silly addNameRange     '4.3.0',
-32 silly addNameRange     '4.4.0',
-32 silly addNameRange     '4.4.1',
-32 silly addNameRange     '4.4.2',
-32 silly addNameRange     '4.4.3',
-32 silly addNameRange     '4.4.4',
-32 silly addNameRange     '4.5.0',
-32 silly addNameRange     '4.5.1',
-32 silly addNameRange     '4.5.2',
-32 silly addNameRange     '4.6.2',
-32 silly addNameRange     '4.7.0',
-32 silly addNameRange     '5.0.0',
-32 silly addNameRange     '5.0.1' ] ]
-33 verbose addNamed [ 'lab', '5.0.1' ]
-34 verbose addNamed [ '5.0.1', '5.0.1' ]
-35 silly lockFile 2c595368-lab-5-0-1 lab@5.0.1
-36 verbose lock lab@5.0.1 /Users/naomigaynor/.npm/2c595368-lab-5-0-1.lock
-37 silly lockFile fa64ab4e-stry-npmjs-org-lab-lab-5-0-1-tgz https://registry.npmjs.org/lab/-/lab-5.0.1.tgz
-38 verbose lock https://registry.npmjs.org/lab/-/lab-5.0.1.tgz /Users/naomigaynor/.npm/fa64ab4e-stry-npmjs-org-lab-lab-5-0-1-tgz.lock
-39 verbose addRemoteTarball [ 'https://registry.npmjs.org/lab/-/lab-5.0.1.tgz',
-39 verbose addRemoteTarball   '06ccfc76e3de4c3249098115d747e1d1a47d465d' ]
-40 info retry fetch attempt 1 at 13:41:24
-41 verbose fetch to= /var/folders/38/bc9hc51d65ldnnx_5lk3x8wm0000gn/T/npm-5632-6SNOtunx/registry.npmjs.org/lab/-/lab-5.0.1.tgz
-42 http GET https://registry.npmjs.org/lab/-/lab-5.0.1.tgz
-43 http 200 https://registry.npmjs.org/lab/-/lab-5.0.1.tgz
-44 silly lockFile fa64ab4e-stry-npmjs-org-lab-lab-5-0-1-tgz https://registry.npmjs.org/lab/-/lab-5.0.1.tgz
-45 silly lockFile fa64ab4e-stry-npmjs-org-lab-lab-5-0-1-tgz https://registry.npmjs.org/lab/-/lab-5.0.1.tgz
-46 silly lockFile 2c595368-lab-5-0-1 lab@5.0.1
-47 silly lockFile 2c595368-lab-5-0-1 lab@5.0.1
-48 silly lockFile 521b3e0c-lab lab@
-49 silly lockFile 521b3e0c-lab lab@
-50 error Error: EACCES, mkdir '/Users/naomigaynor/.npm/lab/5.0.1'
-50 error  { [Error: EACCES, mkdir '/Users/naomigaynor/.npm/lab/5.0.1']
-50 error   errno: 3,
-50 error   code: 'EACCES',
-50 error   path: '/Users/naomigaynor/.npm/lab/5.0.1',
-50 error   parent: 'hapiBlog' }
-51 error Please try running this command again as root/Administrator.
-52 error System Darwin 13.4.0
-53 error command "node" "/usr/local/bin/npm" "install" "lab"
-54 error cwd /Users/naomigaynor/Desktop/KodeIV/hapiBlog/hapiblog
-55 error node -v v0.10.32
-56 error npm -v 1.4.28
-57 error path /Users/naomigaynor/.npm/lab/5.0.1
-58 error code EACCES
-59 error errno 3
-60 error stack Error: EACCES, mkdir '/Users/naomigaynor/.npm/lab/5.0.1'
-61 verbose exit [ 3, true ]
+4 verbose cache add [ 'jshint', null ]
+5 verbose cache add name=undefined spec="jshint" args=["jshint",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'jshint',
+6 verbose parsed url   path: 'jshint',
+6 verbose parsed url   href: 'jshint' }
+7 silly lockFile da5c03cb-jshint jshint
+8 verbose lock jshint /Users/naomigaynor/.npm/da5c03cb-jshint.lock
+9 silly lockFile da5c03cb-jshint jshint
+10 silly lockFile da5c03cb-jshint jshint
+11 verbose addNamed [ 'jshint', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile a02a2468-jshint jshint@
+14 verbose lock jshint@ /Users/naomigaynor/.npm/a02a2468-jshint.lock
+15 silly addNameRange { name: 'jshint', range: '*', hasData: false }
+16 verbose request where is /jshint
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 49c776c3c55c05a8
+19 verbose url raw /jshint
+20 verbose url resolving [ 'https://registry.npmjs.org/', './jshint' ]
+21 verbose url resolved https://registry.npmjs.org/jshint
+22 verbose request where is https://registry.npmjs.org/jshint
+23 info trying registry request attempt 1 at 15:20:44
+24 verbose etag "1AME19DL4LI12NVN1851AG7EI"
+25 http GET https://registry.npmjs.org/jshint
+26 http 200 https://registry.npmjs.org/jshint
+27 silly registry.get cb [ 200,
+27 silly registry.get   { date: 'Wed, 29 Oct 2014 15:20:45 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     etag: '"6E24EI7D832ZEMYCP7NJEAANL"',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     'content-length': '81821',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '23',
+27 silly registry.get     'x-served-by': 'cache-lcy1130-LCY',
+27 silly registry.get     'x-cache': 'HIT',
+27 silly registry.get     'x-cache-hits': '2',
+27 silly registry.get     'x-timer': 'S1414596045.318357,VS0,VE0',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly addNameRange number 2 { name: 'jshint', range: '*', hasData: true }
+29 silly addNameRange versions [ 'jshint',
+29 silly addNameRange   [ '0.1.8',
+29 silly addNameRange     '0.1.9',
+29 silly addNameRange     '0.2.0',
+29 silly addNameRange     '0.2.1',
+29 silly addNameRange     '0.2.2',
+29 silly addNameRange     '0.2.3',
+29 silly addNameRange     '0.3.0',
+29 silly addNameRange     '0.3.1',
+29 silly addNameRange     '0.4.0',
+29 silly addNameRange     '0.5.0',
+29 silly addNameRange     '0.5.1',
+29 silly addNameRange     '0.5.2',
+29 silly addNameRange     '0.5.3',
+29 silly addNameRange     '0.5.4',
+29 silly addNameRange     '0.5.5',
+29 silly addNameRange     '0.5.6',
+29 silly addNameRange     '0.5.7',
+29 silly addNameRange     '0.5.8',
+29 silly addNameRange     '0.5.9',
+29 silly addNameRange     '0.6.0',
+29 silly addNameRange     '0.6.1',
+29 silly addNameRange     '0.6.2',
+29 silly addNameRange     '0.6.3',
+29 silly addNameRange     '0.7.0',
+29 silly addNameRange     '0.7.1',
+29 silly addNameRange     '0.7.2',
+29 silly addNameRange     '0.7.3',
+29 silly addNameRange     '0.8.0',
+29 silly addNameRange     '0.8.1',
+29 silly addNameRange     '0.8.2',
+29 silly addNameRange     '0.9.0',
+29 silly addNameRange     '0.9.1',
+29 silly addNameRange     '1.0.0',
+29 silly addNameRange     '1.1.0',
+29 silly addNameRange     '2.0.0',
+29 silly addNameRange     '2.0.1',
+29 silly addNameRange     '2.1.0',
+29 silly addNameRange     '2.1.1',
+29 silly addNameRange     '2.1.2',
+29 silly addNameRange     '2.1.3',
+29 silly addNameRange     '2.1.4',
+29 silly addNameRange     '2.1.5',
+29 silly addNameRange     '2.1.6',
+29 silly addNameRange     '2.1.7',
+29 silly addNameRange     '2.1.8',
+29 silly addNameRange     '2.1.9',
+29 silly addNameRange     '2.1.10',
+29 silly addNameRange     '2.1.11',
+29 silly addNameRange     '2.2.0',
+29 silly addNameRange     '2.3.0',
+29 silly addNameRange     '2.4.0',
+29 silly addNameRange     '2.4.1',
+29 silly addNameRange     '2.4.2',
+29 silly addNameRange     '2.4.3',
+29 silly addNameRange     '2.4.4',
+29 silly addNameRange     '2.5.0',
+29 silly addNameRange     '2.5.1',
+29 silly addNameRange     '2.5.2',
+29 silly addNameRange     '2.5.3',
+29 silly addNameRange     '2.5.4',
+29 silly addNameRange     '2.5.5',
+29 silly addNameRange     '2.5.6',
+29 silly addNameRange     '2.5.7' ] ]
+30 verbose addNamed [ 'jshint', '2.5.7' ]
+31 verbose addNamed [ '2.5.7', '2.5.7' ]
+32 silly lockFile b780e82e-jshint-2-5-7 jshint@2.5.7
+33 verbose lock jshint@2.5.7 /Users/naomigaynor/.npm/b780e82e-jshint-2-5-7.lock
+34 silly lockFile 0fcbf8a7-pmjs-org-jshint-jshint-2-5-7-tgz https://registry.npmjs.org/jshint/-/jshint-2.5.7.tgz
+35 verbose lock https://registry.npmjs.org/jshint/-/jshint-2.5.7.tgz /Users/naomigaynor/.npm/0fcbf8a7-pmjs-org-jshint-jshint-2-5-7-tgz.lock
+36 verbose addRemoteTarball [ 'https://registry.npmjs.org/jshint/-/jshint-2.5.7.tgz',
+36 verbose addRemoteTarball   '69a6dfa046f3164f904a82f9b0ab57192fc13749' ]
+37 info retry fetch attempt 1 at 15:20:45
+38 verbose fetch to= /var/folders/38/bc9hc51d65ldnnx_5lk3x8wm0000gn/T/npm-10204-3AYo8t-5/registry.npmjs.org/jshint/-/jshint-2.5.7.tgz
+39 http GET https://registry.npmjs.org/jshint/-/jshint-2.5.7.tgz
+40 http 200 https://registry.npmjs.org/jshint/-/jshint-2.5.7.tgz
+41 silly lockFile 0fcbf8a7-pmjs-org-jshint-jshint-2-5-7-tgz https://registry.npmjs.org/jshint/-/jshint-2.5.7.tgz
+42 silly lockFile 0fcbf8a7-pmjs-org-jshint-jshint-2-5-7-tgz https://registry.npmjs.org/jshint/-/jshint-2.5.7.tgz
+43 silly lockFile b780e82e-jshint-2-5-7 jshint@2.5.7
+44 silly lockFile b780e82e-jshint-2-5-7 jshint@2.5.7
+45 silly lockFile a02a2468-jshint jshint@
+46 silly lockFile a02a2468-jshint jshint@
+47 silly resolved [ { name: 'jshint',
+47 silly resolved     version: '2.5.7',
+47 silly resolved     homepage: 'http://jshint.com/',
+47 silly resolved     description: 'Static analysis tool for JavaScript',
+47 silly resolved     author:
+47 silly resolved      { name: 'Anton Kovalyov',
+47 silly resolved        email: 'anton@kovalyov.net',
+47 silly resolved        url: 'http://anton.kovalyov.net/' },
+47 silly resolved     repository: { type: 'git', url: 'https://github.com/jshint/jshint.git' },
+47 silly resolved     bugs: { url: 'https://github.com/jshint/jshint/issues' },
+47 silly resolved     bin: { jshint: './bin/jshint' },
+47 silly resolved     scripts:
+47 silly resolved      { data: 'node scripts/generate-identifier-data',
+47 silly resolved        build: 'node bin/build',
+47 silly resolved        test: 'nodeunit tests tests/regression tests/unit',
+47 silly resolved        pretest: 'jshint src' },
+47 silly resolved     main: './src/jshint.js',
+47 silly resolved     dependencies:
+47 silly resolved      { shelljs: '0.3.x',
+47 silly resolved        underscore: '1.6.x',
+47 silly resolved        cli: '0.6.x',
+47 silly resolved        minimatch: '1.0.x',
+47 silly resolved        htmlparser2: '3.7.x',
+47 silly resolved        'console-browserify': '1.1.x',
+47 silly resolved        exit: '0.1.x',
+47 silly resolved        'strip-json-comments': '1.0.x' },
+47 silly resolved     devDependencies:
+47 silly resolved      { jshint: '2.5.x',
+47 silly resolved        browserify: '6.x',
+47 silly resolved        coveraje: '0.2.x',
+47 silly resolved        nodeunit: '0.9.x',
+47 silly resolved        sinon: '1.10.x',
+47 silly resolved        'unicode-6.3.0': '0.1.x',
+47 silly resolved        regenerate: '0.6.x',
+47 silly resolved        'mock-stdin': '^0.3.0' },
+47 silly resolved     licenses: [ [Object] ],
+47 silly resolved     preferGlobal: true,
+47 silly resolved     files: [ 'bin', 'src', 'data', 'dist' ],
+47 silly resolved     gitHead: '5b779e62d99c1182581167d07a870b34fc4579b0',
+47 silly resolved     _id: 'jshint@2.5.7',
+47 silly resolved     _shasum: '69a6dfa046f3164f904a82f9b0ab57192fc13749',
+47 silly resolved     _from: 'jshint@',
+47 silly resolved     _npmVersion: '1.5.0-alpha-1',
+47 silly resolved     _npmUser: { name: 'rwaldron', email: 'waldron.rick@gmail.com' },
+47 silly resolved     maintainers: [ [Object], [Object] ],
+47 silly resolved     dist:
+47 silly resolved      { shasum: '69a6dfa046f3164f904a82f9b0ab57192fc13749',
+47 silly resolved        tarball: 'http://registry.npmjs.org/jshint/-/jshint-2.5.7.tgz' },
+47 silly resolved     directories: {},
+47 silly resolved     _resolved: 'https://registry.npmjs.org/jshint/-/jshint-2.5.7.tgz' } ]
+48 info install jshint@2.5.7 into /usr/local/lib
+49 info installOne jshint@2.5.7
+50 verbose lib/node_modules/jshint unbuild
+51 verbose tar unpack /Users/naomigaynor/.npm/jshint/2.5.7/package.tgz
+52 silly lockFile 59dfcd45-sr-local-lib-node-modules-jshint tar:///usr/local/lib/node_modules/jshint
+53 verbose lock tar:///usr/local/lib/node_modules/jshint /Users/naomigaynor/.npm/59dfcd45-sr-local-lib-node-modules-jshint.lock
+54 silly lockFile bd89c07c-nor-npm-jshint-2-5-7-package-tgz tar:///Users/naomigaynor/.npm/jshint/2.5.7/package.tgz
+55 verbose lock tar:///Users/naomigaynor/.npm/jshint/2.5.7/package.tgz /Users/naomigaynor/.npm/bd89c07c-nor-npm-jshint-2-5-7-package-tgz.lock
+56 silly gunzTarPerm modes [ '755', '644' ]
+57 error Error: EACCES, mkdir '/usr/local/lib/node_modules/jshint'
+57 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/jshint']
+57 error   errno: 3,
+57 error   code: 'EACCES',
+57 error   path: '/usr/local/lib/node_modules/jshint',
+57 error   fstream_type: 'Directory',
+57 error   fstream_path: '/usr/local/lib/node_modules/jshint',
+57 error   fstream_class: 'DirWriter',
+57 error   fstream_stack:
+57 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+57 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+57 error      'Object.oncomplete (fs.js:107:15)' ] }
+58 error Please try running this command again as root/Administrator.
+59 error System Darwin 13.4.0
+60 error command "node" "/usr/local/bin/npm" "install" "-g" "jshint"
+61 error cwd /Users/naomigaynor/Desktop/KodeIV/hapiBlog/hapiblog
+62 error node -v v0.10.32
+63 error npm -v 1.4.28
+64 error path /usr/local/lib/node_modules/jshint
+65 error fstream_path /usr/local/lib/node_modules/jshint
+66 error fstream_type Directory
+67 error fstream_class DirWriter
+68 error code EACCES
+69 error errno 3
+70 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/jshint'
+71 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+71 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+71 error fstream_stack Object.oncomplete (fs.js:107:15)
+72 verbose exit [ 3, true ]
