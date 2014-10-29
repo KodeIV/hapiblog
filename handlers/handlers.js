@@ -4,25 +4,29 @@ var mongodb = require ('mongodb');
 var joi = require("joi");
 
 
+
+            
+
 module.exports = {
 
 
 	home: function(request, reply) {
-            var db = request.server.plugins['hapi-mongodb'].db;
+          var doc;
+          var db = request.server.plugins['hapi-mongodb'].db;
 
             db.collection('DevOps')
-		          .find()
+              .find()
               .sort({"id": -1 })
               .toArray(function(err, docs) {
                   console.log(docs);
+
                 reply.view("blogfront", {
                   "author" : docs
                 })
               });
-
 		}, 
 
-    deleteContent: function(request, reply) {
+  deleteContent: function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
     var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
 
@@ -49,7 +53,8 @@ module.exports = {
         {
           directory: {
               path: 'public',
-              listing: true
+              listing: false,
+              index: false
           }
         },
 
@@ -63,11 +68,13 @@ module.exports = {
         
           if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
           console.log(result);
+
           reply.view("individual", {
             "blogpost" : result
-          });
+          }); 
 
-    });
+    })
+      
 
   },
 
@@ -97,12 +104,4 @@ module.exports = {
 
 
 
-  // function storePost () {
-  //   //connect to our db
-  //   MongoClient.connect(dbKIV, function(err, db) {
-  //   // operate the on the collection named "DevOps"
-  //   var collection = db.collection('DevOps');
-  //   
-  //   })
-  // };
 
