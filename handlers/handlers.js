@@ -11,13 +11,15 @@ module.exports = {
 
 
 	home: function(request, reply) {
-            var db = request.server.plugins['hapi-mongodb'].db;
+          var doc;
+          var db = request.server.plugins['hapi-mongodb'].db;
 
             db.collection('DevOps')
-		          .find()
+              .find()
               .sort({"id": -1 })
               .toArray(function(err, docs) {
                   console.log(docs);
+
                 reply.view("blogfront", {
                   "author" : docs
                 })
@@ -25,7 +27,7 @@ module.exports = {
 
 		},
 
-    deleteContent: function(request, reply) {
+  deleteContent: function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
     var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
 
@@ -52,7 +54,8 @@ module.exports = {
         {
           directory: {
               path: 'public',
-              listing: true
+              listing: false,
+              index: false
           }
         },
 
@@ -66,11 +69,13 @@ module.exports = {
 
           if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
           console.log(result);
+
           reply.view("individual", {
             "blogpost" : result
           });
 
-    });
+    })
+
 
   },
 
@@ -86,16 +91,14 @@ module.exports = {
 
     })
 
-}
+},
+
+  authenticate: function (request, reply) {
+
+                // Perform any account lookup or registration, setup local session,
+                // and redirect to the application. The third-party credentials are
+                // stored in request.auth.credentials. Any query parameters from
+                // the initial request are passed back via request.auth.credentials.query.
+                return reply.redirect('/home');
+            }
   };
-
-
-
-  // function storePost () {
-  //   //connect to our db
-  //   MongoClient.connect(dbKIV, function(err, db) {
-  //   // operate the on the collection named "DevOps"
-  //   var collection = db.collection('DevOps');
-  //
-  //   })
-  // };

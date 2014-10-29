@@ -13,3 +13,10 @@ block append content
         form(name="input", method="GET", action="/articles/edit")
         p
           input(type="submit", value="Edit")
+
+        form(method= "POST", action= "/articles/{id}")
+          textarea(name= "comments", id="comments")
+            | please comment here
+          p 
+        p
+          input(type="submit", value = "Comment")
