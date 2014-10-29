@@ -2,15 +2,22 @@ var Hapi = require("hapi");
 var joi = require("joi");
 var Path = require('path'); 
 var routes = require("./routes/routes.js");
+var routes2 = require("./routes/routes2.js");
+var bell = require("bell");
+var hapiAuthCookie = require("hapi-auth-cookie");
 
-
-var server = new Hapi.Server(8080, "localhost", {
+var pack = new Hapi.Pack();
+var server = pack.server(8080, "localhost", {
    debug: {
        request: ['error']
    }
 });
 
-var pack = new Hapi.Pack();
+var server2 = pack.server(8081, "localhost", {
+   debug: {
+       request: ['error']
+   }
+});
 
 var dbOpts = {
     "url": "mongodb://KodeIV:KoDeIv@linus.mongohq.com:10038/KodeIVMongo",
@@ -60,6 +67,7 @@ server.pack.register(require('hapi-auth-cookie'), function (err) {
         isSecure: false, // required for non-https applications
         ttl: 24* 60 * 60 * 1000 // Set session to 1 day
     });
+  })
     
 server.ext('onRequest', function (request, next) {
         console.log(request.path, request.query);
@@ -77,12 +85,28 @@ server.views(viewpoints)
 //module.exports = server;
 
 if(!module.parent){
-	server.start(function() {
+	pack.start(function() {
     	console.log("Hapi server started @", server.info.uri);
 
 	});
 }
    
 server.route(routes);
+server2.route(routes2);
+
+
+
+// var loggingOptions = require('./test/logOptions.js');
+
+// pack.register({
+//     plugin: require('good'),
+//     options: loggingOptions
+// }, function(err) {
+//     if (err){
+//         console.log(err);
+//         return;
+//     }
+// });
+
 
 
