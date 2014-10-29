@@ -18,36 +18,42 @@ module.exports = {
               .sort({"id": -1 })
               .toArray(function(err, docs) {
                   console.log(docs);
-                //reply(docs) 
-                results = docs;
-                
-             
+
+                reply.view("blogfront", {
+                  "author" : docs
+                })
               });
-              
-              reply.view("blogfront", {
-           
-           "author" : results
-         })
-
-		     
-
 		}, 
 
   deleteContent: function(request, reply) {
     var db = request.server.plugins['hapi-mongodb'].db;
     var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
 
-    db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) }, function (err){
-    if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
-    reply("Record Deleted");
-    });
+    db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) }, 
+      function(err, reply) {
+        console.log(err);
+        reply.redirect("/home")});
     },
+
+      insertNewPost: function(request, reply){
+        var db = request.server.plugins['hapi-mongodb'].db;
+        db.collection('DevOps').insert({
+          title: request.payload.title,
+          author: request.payload.author, 
+          content: request.payload.content
+        },
+      
+      function(err, data) {
+        reply.redirect("/home")});
+
+  },
 
   publicfiles: 
         {
           directory: {
               path: 'public',
-              listing: true
+              listing: false,
+              index: false
           }
         },
 
@@ -61,48 +67,31 @@ module.exports = {
         
           if (err) return reply(Hapi.error.internal('Internal MongoDB error', err));
           console.log(result);
-          //reply(result);
-          doc = result;
 
           reply.view("individual", {
-            "blogpost": doc
-          })
-          
+            "blogpost" : result
+          }); 
 
     })
       
 
   },
 
-  insertNewPost: function(request, reply){
-    var db = request.server.plugins['hapi-mongodb'].db;
-    db.collection('DevOps').insert({
-      title: request.payload.title,
-      author: request.payload.author, 
-      content: request.payload.content
-    },
-      
-      function(err, data) {
-        reply.redirect("/home")});
-
-  },
 
   getForm: function (request, reply) {
         reply.view ("form", {
 
         })
-  }
-  
+  },
 
-};
+  editArticle: function (request, reply) {
+    reply.view("editForm", {
+
+    })
+
+}
+  };
 
 
-  // function storePost () {
-  //   //connect to our db
-  //   MongoClient.connect(dbKIV, function(err, db) {
-  //   // operate the on the collection named "DevOps"
-  //   var collection = db.collection('DevOps');
-  //   
-  //   })
-  // };
+
 

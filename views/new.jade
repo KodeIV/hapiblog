@@ -4,11 +4,11 @@ block append content
     Write a blog post.
   ul
     form(class="form" name="input", method="POST", action="articles/new")
-     p Name
-      input(type="text", name="author")
-     p Title
-      input(type="text", name="title")
-     p Content
-      input(type= "text", name="content")
-     p
-      input(type="submit", value="submit")
+      p Name
+        input(type="text", name="author")
+      p Title
+        input(type="text", name="title")
+      p Content
+        textarea(name="content", id="content")
+      p
+        input(type="submit", value="submit")

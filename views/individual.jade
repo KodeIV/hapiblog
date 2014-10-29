@@ -4,14 +4,21 @@ block append content
   div.container
     h1 Blog post
     ul
-      each user, i in blogpost
         li.
-          #{user.title} :
-          #{user.content} 
-         
-				
-
-        form(name="delete", method="DELETE", action="/articles/{id}")
+          #{blogpost.title} :
+          #{blogpost.content} 
+        form(name="input", method="POST", action="/articles/{id}")
         p
           input(type="submit", value="Delete")
+        form(name="input", method="GET", action="/articles/edit")
+        p
+          input(type="submit", value="Edit")
+        form(method= "POST", action= "/articles/{id}")
+          textarea(name= "comments", id="comments")
+            | please comment here
+          p 
+        p
+          input(type="submit", value = "Comment")
+
+
 
