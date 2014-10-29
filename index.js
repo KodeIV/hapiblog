@@ -5,7 +5,7 @@ var Path = require('path');
 
 var routes = require("./routes/routes.js");
 
-var server = new Hapi.Server(8080, "localhost");
+var server = new Hapi.Server(+process.env.PORT, '0.0.0.0');
 
 var viewpoints = {
                     engines: {
