@@ -1,8 +1,14 @@
 var Hapi = require("hapi");
 var hapi_mongodb = require("hapi-mongodb");
-var Path = require('path'); 
+var Path = require('path');
 var routes = require("./routes/routes.js");
 var routes2 = require("./routes/routes2.js");
+
+var serverConfig = {
+    cache: require ('catbox-memory')
+  };
+
+
 var pack = new Hapi.Pack();
 var s1 = pack.server(8080, "localhost");
 var s2 = pack.server(8081, "localhost");
@@ -26,7 +32,7 @@ pack.register({
         console.log(err);
         return;
     }
-});    
+});
 
 
 pack.register({
@@ -66,6 +72,3 @@ if(!module.parent){
 
 	});
 }
-   
-
-

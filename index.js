@@ -3,6 +3,7 @@ var joi = require("joi");
 var Path = require('path'); 
 var routes = require("./routes/routes.js");
 
+
 var server = new Hapi.Server(8080, "localhost", {
    debug: {
        request: ['error']
@@ -10,7 +11,6 @@ var server = new Hapi.Server(8080, "localhost", {
 });
 
 var pack = new Hapi.Pack();
-
 
 var dbOpts = {
     "url": "mongodb://KodeIV:KoDeIv@linus.mongohq.com:10038/KodeIVMongo",
