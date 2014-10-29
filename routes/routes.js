@@ -1,19 +1,23 @@
-var handlers = require("../handlers/handlers.js"); 
+var handlers = require("../handlers/handlers.js");
 
 module.exports = [
 	{
 		path: "/home",
 		method: "GET",
-		handler: 
-			handlers.home
-		
+		config: {
+			handler: handlers.home,
+			cache: {
+			expiresIn: 30000,
+			// staleIn: 15000,
+			// staleTimeout: 1000
+			}
+		}
 	},
 
 	{
 	    path: '/{param*}',
 	    method: 'GET',
-	    handler: 
-	    	handlers.publicfiles
+	    handler: handlers.publicfiles,
 
 	},
 
