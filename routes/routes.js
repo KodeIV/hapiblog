@@ -21,11 +21,11 @@ module.exports = [
 
 	},
 
-	/*{
+	{
 		path: "/articles/{id}",
-		method: "POST",
+		method: "DELETE",
 		handler: handlers.deleteContent
-	},*/
+	},
 
 	{
 	    method  : "GET",
