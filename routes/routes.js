@@ -52,6 +52,7 @@ module.exports = [
 		handler: handlers.editArticle
 		},
 
+
 	{
         method: ['GET', 'POST'], // Must handle both GET and POST
         path: '/login',          // The callback endpoint registered with the provider
@@ -66,6 +67,7 @@ module.exports = [
     	path: '/articles/{id}',
     	handler: handlers.commentToDb
     }
+
 
 	/*{
 		method: 'POST',
