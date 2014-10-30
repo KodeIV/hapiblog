@@ -21,11 +21,11 @@ module.exports = [
 
 	},
 
-	{
+	/*{
 		path: "/articles/{id}",
 		method: "POST",
 		handler: handlers.deleteContent
-	},
+	},*/
 
 	{
 	    method  : "GET",
@@ -59,6 +59,12 @@ module.exports = [
             auth: 'facebook',
             handler: handlers.authenticate
         }
+    },
+
+    {
+    	method: 'POST',
+    	path: '/articles/{id}',
+    	handler: handlers.commentToDb
     }
 
 	/*{
@@ -68,4 +74,4 @@ module.exports = [
 
 	}*/
 
-]
+];
