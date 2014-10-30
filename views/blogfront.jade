@@ -1,11 +1,17 @@
 
 extends base
 block append content
- div.fb-login-button(data-max-rows='1', data-size='medium', data-show-faces='false', data-auto-logout-link='false')
- div.container
    h1 Have a look through the KodeIV blog posts
    ul
        each user, i in author
          li
            p #{user.author} :
            a(href="/articles/"+user._id) #{user.title}
+  div.container
+    h1 Have a look through the KodeIV blog posts
+   table
+    each user, i in author
+      tr
+        td: p #{user.author} :
+        td: a(href="/articles/"+user._id) #{user.title}
+
