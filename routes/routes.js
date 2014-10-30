@@ -17,7 +17,7 @@ module.exports = [
 	{
 	    path: '/{param*}',
 	    method: 'GET',
-	    handler: handlers.publicfiles,
+	    handler: handlers.publicfiles
 
 	},
 
