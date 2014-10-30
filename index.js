@@ -1,16 +1,23 @@
 var Hapi = require("hapi");
 var joi = require("joi");
+
 var Path = require('path');
+
 var routes = require("./routes/routes.js");
+//var routes2 = require("./routes/routes2.js");
+var bell = require("bell");
+var hapiAuthCookie = require("hapi-auth-cookie");
 
-
-var server = new Hapi.Server(8080, "localhost", {
-   debug: {
-       request: ['error']
-   }
-});
 
 var pack = new Hapi.Pack();
+var server = pack.server(+process.env.PORT, '0.0.0.0', {
+
+        debug: {
+            request: ['error']
+        }
+    });
+
+
 
 var dbOpts = {
     "url": "mongodb://KodeIV:KoDeIv@linus.mongohq.com:10038/KodeIVMongo",
@@ -20,6 +27,7 @@ var dbOpts = {
         }
     }
 };
+
 
 
 pack.register(
@@ -32,8 +40,8 @@ pack.register(
     if (err) {
         console.error(err);
         throw err;
+
     }
-  }
 );
 
 pack.register(require('bell'), function (err) {
@@ -47,12 +55,14 @@ pack.register(require('bell'), function (err) {
     });
 });
 
-pack.register(require('hapi-auth-cookie'), function (err) {  
+pack.register(require('hapi-auth-cookie'), function (err) {
     if (err) {
         throw err;
     }
+});
 
     // Set our strategy
+
     server.auth.strategy('session', 'cookie', {
         password: 'hapiauth', // cookie secret
         cookie: 'session', // Cookie name
@@ -61,26 +71,27 @@ pack.register(require('hapi-auth-cookie'), function (err) {
         ttl: 24* 60 * 60 * 1000 // Set session to 1 day
     });
 
+
 server.ext('onRequest', function (request, next) {
-        console.log(request.path, request.query);
-        next();
-    });
+    console.log(request.path, request.query);
+    next();
+});
 
 var viewpoints = {
-                    engines: {
-                      jade: require("jade")
-                    },
-                  	path: "./views"
-                  }
-server.views(viewpoints)
+        engines: {
+            jade: require("jade")
+        },
+        path: "./views"
+    };
+server.views(viewpoints);
 
 //module.exports = server;
 
-if(!module.parent){
-	server.start(function() {
-    	console.log("Hapi server started @", server.info.uri);
+if (!module.parent) {
+    pack.start (function() {
+      console.log("Hapi server started @", server.info.uri);
 
-	});
+    });
 }
 
 server.route(routes);

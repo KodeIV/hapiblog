@@ -7,16 +7,17 @@ block append content
         li.
           #{blogpost.title} :
           #{blogpost.content}
-        form(name="input", method="POST", action="/articles/{id}")
+        form(name="input", method="POST", action="articles/{id}")
         p
           input(type="submit", value="Delete")
         form(name="input", method="GET", action="/articles/edit")
         p
           input(type="submit", value="Edit")
 
-        form(method= "POST", action= "/articles/{id}")
-          textarea(name= "comments", id="comments")
-            | please comment here
+
+        form(method="POST", action="/home")
+              textarea(name="comments", id="comments")
+                | Write your comment here
           p
         p
           input(class="submitpost" type="submit", value = "Comment")

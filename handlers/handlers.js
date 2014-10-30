@@ -1,51 +1,54 @@
 var results;
-var mongodb = require ('mongodb');
+var mongodb = require('mongodb');
 //var entry ={"id": 5, "date": "21102104", "name": "Naomi", "text":"Jade stare"};
 var joi = require("joi");
 
 var serverConfig = {
-		cache: require ('catbox-memory')
-	};
+         cache: require('catbox-memory')
+     };
+
 
 module.exports = {
 
+     home: function (request, reply) {
+         var doc;
+         var db = request.server.plugins['hapi-mongodb'].db;
 
-	home: function(request, reply) {
-          var doc;
-          var db = request.server.plugins['hapi-mongodb'].db;
-
-            db.collection('DevOps')
+         db.collection('DevOps')
               .find()
+
               .sort({"_id": -1 }).limit(6)
               .toArray(function(err, docs) {
-
+          
                 reply.view("blogfront", {
-                  "author" : docs
-                })
-              });
+                    "author" : docs
+                });
+             });
 
-		},
+	},
 
-  deleteContent: function(request, reply) {
-    var db = request.server.plugins['hapi-mongodb'].db;
-    var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
+     deleteContent: function(request, reply) {
+         var db = request.server.plugins['hapi-mongodb'].db;
+         var ObjectID = request.server.plugins['hapi-mongodb'].ObjectID;
 
-    db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) },
-      function(err, reply) {
-        console.log(err);
-        reply.redirect("/home")});
-    },
+         db.collection('DevOps').remove({"_id" : new ObjectID (request.params.id) },
+             function (err, reply) {
+                 console.log(err);
+                 reply.redirect("/home");
+             });
+     },
 
-      insertNewPost: function(request, reply){
-        var db = request.server.plugins['hapi-mongodb'].db;
-        db.collection('DevOps').insert({
+     insertNewPost: function(request, reply){
+         var db = request.server.plugins['hapi-mongodb'].db;
+         db.collection('DevOps').insert({
           title: request.payload.title,
           author: request.payload.author,
           content: request.payload.content
         },
 
       function(err, data) {
-        reply.redirect("/home")});
+        reply.redirect("/home");
+      });
 
   },
 
@@ -73,7 +76,7 @@ module.exports = {
             "blogpost" : result
           });
 
-    })
+    });
 
 
   },
@@ -82,13 +85,13 @@ module.exports = {
   getForm: function (request, reply) {
         reply.view ("form", {
 
-        })
+        });
   },
 
   editArticle: function (request, reply) {
     reply.view("editForm", {
 
-    })
+    });
 
 },
 
@@ -99,5 +102,23 @@ module.exports = {
                 // stored in request.auth.credentials. Any query parameters from
                 // the initial request are passed back via request.auth.credentials.query.
                 return reply.redirect('/home');
-            }
+  },
+
+
+  commentToDb: function (request, reply) {
+    var db = request.server.plugins['hapi-mongodb'].db;
+        db.collection('Comments').insert(
+        {
+          comments: request.payload.comments
+        },
+
+      function(err, data) {
+        reply.redirect("/home");
+      }
+
+        );
+
+  }
+
+
   };
