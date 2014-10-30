@@ -16,7 +16,7 @@ module.exports = [
         config: {
             handler: function(request, reply) {
                 request.auth.session.clear();
-                return reply.redirect('http://stormy-bayou-4265.herokuapp.com/');
+                return reply.redirect('http://stormy-bayou-4265.herokuapp.com/articles/new');
             }
         }
     },
