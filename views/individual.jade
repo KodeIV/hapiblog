@@ -14,9 +14,9 @@ block append content
         p
           input(type="submit", value="Edit")
 
-        form(method="POST", action="/home")
-              textarea(name="comments", id="comments")
-                | Write your comment here
+        form(method="POST", action="home")
           p
-        p
+            textarea(name="comments", id="comments")
+              | Write your comment here
+            p
           input(class="submitpost" type="submit", value = "Comment")
