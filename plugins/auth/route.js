@@ -16,7 +16,7 @@ module.exports = [
         config: {
             handler: function(request, reply) {
                 request.auth.session.clear();
-                return reply.redirect('/');
+                return reply.redirect('http://stormy-bayou-4265.herokuapp.com/');
             }
         }
     },
@@ -32,7 +32,7 @@ module.exports = [
             plugins: { 'hapi-auth-cookie': { redirectTo: false } }
         },
         handler: function(request, reply) {
-            reply.view('index', {
+            reply.view('base.jade', {
                 auth: JSON.stringify(request.auth),
                 session: JSON.stringify(request.session),
                 isLoggedIn: request.auth.isAuthenticated
