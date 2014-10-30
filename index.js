@@ -11,7 +11,6 @@ var hapiAuthCookie = require("hapi-auth-cookie");
 
 var pack = new Hapi.Pack();
 var server = pack.server(+process.env.PORT, '0.0.0.0', {
-
         debug: {
             request: ['error']
         }

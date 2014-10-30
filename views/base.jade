@@ -1,8 +1,12 @@
 doctype html
 html
 	head
-		link(rel= "stylesheet", href="/css/main.css" )
+		link (rel= "stylesheet", href="/css/main.css")
 		title KodeIV blog posts
 	body
-		img#lol(src="/img/logo3.png")
+		img#lol (src="/img/logo3.png")
 		block content
+		form.navbar-form.navbar-left(role='search')
+			div.form-group
+				input.form-control(type='text', placeholder='Search')
+				button.btn.btn-default(type='submit')
