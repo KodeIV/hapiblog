@@ -109,7 +109,9 @@ module.exports = {
     var db = request.server.plugins['hapi-mongodb'].db;
         db.collection('Comments').insert(
         {
-          comments: request.payload.comments
+          comment: request.payload.comments,
+          author: request.payload.author,
+          individualID: request.payload.individualID
         },
 
       function(err, data) {
