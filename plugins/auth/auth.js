@@ -12,7 +12,7 @@ exports.register = function(plugin, options, next) {
 
     plugin.auth.strategy('session', 'cookie', {
         password: 'hapiauth', // 
-        cookie: 'sid-hapiauth', // 
+        cookie: 'session', // 
         redirectTo: '/',
         isSecure: false,
     });
