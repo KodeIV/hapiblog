@@ -2,7 +2,7 @@ var Handler = require('./handlers');
 module.exports = [
     {
         path: "/auth/facebook",
-        method: "GET",
+        method: ["GET", "POST"],
         config: {
             auth: 'facebook',
             handler: Handler.sessionManagement
@@ -11,12 +11,21 @@ module.exports = [
     },  
 
     {
+    path: "/auth/google",
+    method: "GET",
+    config: {
+        auth: 'google',
+        handler: Handler.sessionManagement
+    }
+},
+
+    {
         path: "/logout",
         method: "GET",
         config: {
             handler: function(request, reply) {
                 request.auth.session.clear();
-                return reply.redirect('/');
+                return reply.redirect('http://stormy-bayou-4265.herokuapp.com/articles/new');
             }
         }
     },
@@ -32,7 +41,7 @@ module.exports = [
             plugins: { 'hapi-auth-cookie': { redirectTo: false } }
         },
         handler: function(request, reply) {
-            reply.view('index', {
+            reply.view('base.jade', {
                 auth: JSON.stringify(request.auth),
                 session: JSON.stringify(request.session),
                 isLoggedIn: request.auth.isAuthenticated
