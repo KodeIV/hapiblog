@@ -7,16 +7,18 @@ block append content
         li.
           #{blogpost.title} :
           #{blogpost.content}
-        form(name="input", method="POST", action="articles/{id}")
-        p
-          input(type="submit", value="Delete")
+        form(name="input", method="DELETE", action="/home")
+          p
+            input(type="submit", value="Delete")
         form(name="input", method="GET", action="/articles/edit")
-        p
-          input(type="submit", value="Edit")
+          p
+            input(type="submit", value="Edit")
 
         form(method="POST", action="home")
           p
+            input(type="hidden", name= "individualID", value = '#{blogpost._id}')
             textarea(name="comments", id="comments")
               | Write your comment here
             p 
+            input(type= "text", name= "author", value = "username")
           input(type="submit", value="Comment")
