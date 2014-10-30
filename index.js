@@ -42,7 +42,7 @@ pack.register(
         throw err;
 
     }
-);
+
 
 pack.register(require('bell'), function (err) {
 
@@ -95,3 +95,5 @@ if (!module.parent) {
 }
 
 server.route(routes);
+
+});
