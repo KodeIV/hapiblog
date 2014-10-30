@@ -1,6 +1,6 @@
 var Hapi = require("hapi");
 var joi = require("joi");
-var Path = require('path'); 
+var Path = require('path');
 var routes = require("./routes/routes.js");
 
 
@@ -22,11 +22,11 @@ var dbOpts = {
 };
 
 
-server.pack.register(
+pack.register(
   {
     plugin: require('hapi-mongodb'),
     options: dbOpts
-  }, 
+  },
 
   function (err) {
     if (err) {
@@ -36,7 +36,7 @@ server.pack.register(
   }
 );
 
-server.pack.register(require('bell'), function (err) {
+pack.register(require('bell'), function (err) {
 
     server.auth.strategy('facebook', 'bell', {
         provider: 'facebook',
@@ -47,7 +47,7 @@ server.pack.register(require('bell'), function (err) {
     });
 });
 
-server.pack.register(require('hapi-auth-cookie'), function (err) {  
+pack.register(require('hapi-auth-cookie'), function (err) {  
     if (err) {
         throw err;
     }
@@ -60,7 +60,7 @@ server.pack.register(require('hapi-auth-cookie'), function (err) {
         isSecure: false, // required for non-https applications
         ttl: 24* 60 * 60 * 1000 // Set session to 1 day
     });
-    
+
 server.ext('onRequest', function (request, next) {
         console.log(request.path, request.query);
         next();
@@ -82,7 +82,5 @@ if(!module.parent){
 
 	});
 }
-   
+
 server.route(routes);
-
-

@@ -1,10 +1,12 @@
-var handlers = require("../handlers/commentHandlers.js"); 
+var handlers = require("../handlers/commentHandlers.js");
 
-module.exports = 
-{
+module.exports = {
 		path: "/",
 		method: "GET",
-		handler: 
-			handlers.insertComment
-		
+		config: {
+			handler: handlers.insertComment,
+			cache: {
+				expiresIn: 30000
+			}
 	}
+};	

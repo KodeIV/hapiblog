@@ -11,7 +11,7 @@ module.exports = {
 
             db.collection('Comments')
 		          .find()
-              .sort({"id": -1 })
+              .sort({"_id": -1}).limit(6)
               .toArray(function(err, docs) {
                   console.log(docs);
                   reply(docs);
