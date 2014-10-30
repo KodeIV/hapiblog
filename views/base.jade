@@ -1,8 +1,13 @@
 doctype html
 html
-	head
-		link(rel= "stylesheet", href="/css/main.css" )
-		title KodeIV blog posts
-	body
-		img#lol(src="/img/logo3.png")
-		block content
+    head
+        link(rel= "stylesheet", href="/css/main.css" )
+        title KodeIV blog posts
+    body
+        div.auth-btns
+         div.auth-btn.fb
+          a(href='/auth/facebook')
+           span.icn.sm
+           span.msg.sm Log in with Facebook
+        img#lol(src="/img/logo3.png")
+        block content
