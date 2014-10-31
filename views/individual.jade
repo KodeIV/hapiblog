@@ -1,7 +1,6 @@
 
 extends base
 block append content
-
   div.container
     h1 Blog post
     ul
@@ -20,7 +19,7 @@ block append content
             input(type="hidden", name= "individualID", value = '#{blogpost._id}')
             textarea(name="comments", id="comments")
               | Write your comment here
-            p 
+            p
             input(type= "text", name= "author", value = "username")
             p
           input(class="submitpost" type="submit", value = "Comment")
@@ -28,8 +27,3 @@ block append content
 
    script( src = "//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
   script( src = "/css/ajax.js" )
-  
-
-
-  
-
