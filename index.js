@@ -7,6 +7,9 @@ var hapiAuthCookie = require("hapi-auth-cookie");
 
 var pack = new Hapi.Pack();
 var server = pack.server(+process.env.PORT, '0.0.0.0', {
+
+        cors: true,
+        origin
         debug: {
             request: ['error']
         }
@@ -36,7 +39,7 @@ function (err){
   pack.register([
     { plugin: require('bell') },
     { plugin: require('hapi-auth-cookie') },
-    { plugin: require('./plugins/auth') }], 
+    { plugin: require('./plugins/auth') }],
     function(err) {
         if (err) throw err;
     }
