@@ -2,7 +2,7 @@ var Handler = require('./handlers');
 module.exports = [
     {
         path: "/auth/facebook",
-        method: ["GET", "POST"],
+        method: "GET",
         config: {
             auth: 'facebook',
             handler: Handler.sessionManagement
