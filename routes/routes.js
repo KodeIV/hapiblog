@@ -66,9 +66,13 @@ module.exports = [
     	method: 'POST',
     	path: '/articles/{id}',
     	handler: handlers.commentToDb
-    }
+    },
 
-
+		{
+			method: 'POST',
+			path: '/articles/search',
+			handler: handlers.search
+		}
 	/*{
 		method: 'POST',
 		path: '/articles/edit',

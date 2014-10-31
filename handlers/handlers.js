@@ -2,7 +2,6 @@ var results;
 var mongodb = require('mongodb');
 //var entry ={"id": 5, "date": "21102104", "name": "Naomi", "text":"Jade stare"};
 var joi = require("joi");
-
 var serverConfig = {
          cache: require('catbox-memory')
      };
@@ -19,7 +18,7 @@ module.exports = {
 
               .sort({"_id": -1 }).limit(6)
               .toArray(function(err, docs) {
-          
+
                 reply.view("blogfront", {
                     "author" : docs
                 });
@@ -114,6 +113,27 @@ module.exports = {
       }
 
         );
+
+  },
+
+  search: function (request, reply) {
+    var query = request.payload.query;
+      // query = query.toLowerCase(/a-z, A-Z/);
+    var db = request.server.plugins['hapi-mongodb'].db;
+        db.collection('DevOps')
+        .find({"$or":[{"author":{"$regex": query}}, {"content":{"$regex": query}},
+                      {"title":{"$regex":query}}]})
+        .sort({"_id": -1 }).limit(6)
+        .toArray(function(err, docs) {
+            console.log(docs)
+        if (docs.length <1){
+          return reply.view("nothingfound")
+        }
+          reply.view("blogfront", {
+              "author" : docs
+          });
+       });
+
 
   }
 
