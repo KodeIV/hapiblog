@@ -1,12 +1,6 @@
 
 extends base
 block append content
-   h1 Have a look through the KodeIV blog posts
-   ul
-       each user, i in author
-         li
-           p #{user.author} :
-           a(href="/articles/"+user._id) #{user.title}
   div.container
     h1 Have a look through the KodeIV blog posts
    table
@@ -14,4 +8,3 @@ block append content
       tr
         td: p #{user.author} :
         td: a(href="/articles/"+user._id) #{user.title}
-

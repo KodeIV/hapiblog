@@ -6,6 +6,6 @@ exports.sessionManagement = function(request, reply) {
         request.auth.session.set({
             sid: sid
         });
-        return reply.redirect('/articles/new');
+        return reply.redirect('/');
 
 };
