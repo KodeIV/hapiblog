@@ -22,6 +22,17 @@ var dbOpts = {
     }
 };
 
+pack.register(
+{
+  plugin: require('hapi-mongodb'),
+  options: dbOpts
+},
+function (err){
+  if (err) {
+    console.log(err);
+    throw err;
+  }
+});
 
   pack.register([
     { plugin: require('bell') },

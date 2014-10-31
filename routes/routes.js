@@ -5,12 +5,12 @@ module.exports = [
 		path: "/home",
 		method: "GET",
 		config: {
-			handler: handlers.home,
-			cache: {
-			expiresIn: 30000,
+			handler: handlers.home
+			// cache: {
+			// expiresIn: 30000,
 			// staleIn: 15000,
 			// staleTimeout: 1000
-			}
+			//}
 		}
 	},
 
