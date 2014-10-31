@@ -9,7 +9,6 @@ var pack = new Hapi.Pack();
 var server = pack.server(+process.env.PORT, '0.0.0.0', {
 
         cors: true,
-        origin
         debug: {
             request: ['error']
         }

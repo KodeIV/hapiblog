@@ -33,7 +33,7 @@ table{
 	border-radius: 10px;
 	border: solid 2px #bc365e;
 	position: fixed;
-	top: 45%;
+	top: 55%;
 	left: 30%;
 	transform: translate(-50%, -50%);
 
@@ -72,12 +72,16 @@ input.submitpost {
 
 }
 
+/*.individual{
+	text-align: center;
+}*/
+
 #lol {
 
 	width: 180px;
 	height: 200px;
   position: fixed;
-  top: 35%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
