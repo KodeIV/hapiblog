@@ -3,7 +3,7 @@ h1{
 	font-size: 40px;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	text-align: center;
-	width: 1200px;
+	width: 1150px;
 	height: 40px;
 	position: fixed;
 
@@ -38,7 +38,9 @@ table{
 	transform: translate(-50%, -50%);
 
 }
-
+.navbar-form{
+	text-align: center;
+}
 body {
 	background-image: url("http://i661.photobucket.com/albums/uu334/evohe-online/TwotoneBackgroundPlain.jpg");
 	/*background-color: #D4AF64;*/

@@ -1,9 +1,10 @@
 extends base
 block append content
   div.container
-    h1 Welcome to the KodeIV blog
-    table: h2 Recent Posts
-      each user, i in author
-        tr
-          td: p #{user.author} :
-          td: a(href="/articles/"+user._id) #{user.title}
+    h1 Welcome to the KodeIV blog posts
+   table
+    th: Recent Posts
+    each user, i in author
+      tr
+        td: p #{user.author} :
+        td: a(href="/articles/"+user._id) #{user.title}

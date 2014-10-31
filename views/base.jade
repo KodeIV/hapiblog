@@ -1,12 +1,13 @@
 doctype html
 html
 	head
-		link (rel= "stylesheet", href="/css/main.css")
+		link(rel= "stylesheet", href="/css/main.css")
+		script(src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js")
 		title KodeIV blog posts
 	body
-		img#lol (src="/img/logo3.png")
-		block content
-		form.navbar-form.navbar-left(role='search')
+		img#lol(src="/img/logo3.png")
+		form.navbar-form.navbar-left(role='search' method='post' action='/articles/search')
 			div.form-group
-				input.form-control(type='text', placeholder='Search')
-				button.btn.btn-default(type='submit')
+				input.form-control(name='query' type='text', placeholder='Search')
+				input.btn.btn-default(type='submit')
+		block content

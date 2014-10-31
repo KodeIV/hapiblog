@@ -17,15 +17,15 @@ module.exports = [
 	{
 	    path: '/{param*}',
 	    method: 'GET',
-	    handler: handlers.publicfiles,
+	    handler: handlers.publicfiles
 
 	},
 
-	/*{
+	{
 		path: "/articles/{id}",
-		method: "POST",
+		method: "DELETE",
 		handler: handlers.deleteContent
-	},*/
+	},
 
 	{
 	    method  : "GET",
@@ -66,9 +66,13 @@ module.exports = [
     	method: 'POST',
     	path: '/articles/{id}',
     	handler: handlers.commentToDb
-    }
+    },
 
-
+		{
+			method: 'POST',
+			path: '/articles/search',
+			handler: handlers.search
+		}
 	/*{
 		method: 'POST',
 		path: '/articles/edit',
