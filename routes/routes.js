@@ -5,19 +5,19 @@ module.exports = [
 		path: "/home",
 		method: "GET",
 		config: {
-			handler: handlers.home,
-			cache: {
-			expiresIn: 30000,
+			handler: handlers.home
+			// cache: {
+			// expiresIn: 30000,
 			// staleIn: 15000,
 			// staleTimeout: 1000
-			}
+			//}
 		}
 	},
 
 	{
 	    path: '/{param*}',
 	    method: 'GET',
-	    handler: handlers.publicfiles,
+	    handler: handlers.publicfiles
 
 	},
 
@@ -53,14 +53,14 @@ module.exports = [
 		},
 
 
-	{
+	/*{
         method: ['GET', 'POST'], // Must handle both GET and POST
         path: '/login',          // The callback endpoint registered with the provider
         config: {
             auth: 'facebook',
             handler: handlers.authenticate
         }
-    },
+    },*/
 
     {
     	method: 'POST',
